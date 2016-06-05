@@ -12,6 +12,13 @@
            sync-c="true"
            sync-j="8" />
 
+  <remote  name="cm-redux"
+           fetch="git://github.com/"
+           review="review.cyanogenmod.org"
+           revision="refs/heads/cm-12.1"
+           sync-c="true"
+           sync-j="8" />
+
   <remote  name="carbon"
            fetch="git://github.com/"
            review="review.carbonrom.org"
@@ -47,16 +54,16 @@
   <remote  name="private"
            fetch="ssh://git@github.com" />
 
-  <default revision="refs/tags/android-5.1.1_r33"
+  <default revision="refs/tags/android-5.1.1_r37"
            remote="aosp"
            sync-c="true"
            sync-j="8" />
 
   <!-- Carbon Manifest -->
-  <project path="android" name="CarbonROM/android" groups="pdk" remote="carbon" />
+  <project path="android" name="carbon-z00a/android" groups="pdk" remote="carbon" />
 
   <!-- Build Carbon -->
-  <project path="build" name="CarbonROM/android_build" groups="pdk,tradefed" remote="carbon" >
+  <project path="build" name="carbon-z00a/android_build" groups="pdk,tradefed" remote="carbon" >
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
 
@@ -64,7 +71,7 @@
   <project path="abi/cpp" name="CyanogenMod/android_abi_cpp" groups="pdk" remote="cm" />
   <project path="art" name="CyanogenMod/android_art" groups="pdk" remote="cm" />
   <project path="bionic" name="CyanogenMod/android_bionic" groups="pdk" remote="cm" />
-  <project path="bootable/recovery" name="CyanogenMod/android_bootable_recovery" groups="pdk" remote="cm" />
+  <project path="bootable/recovery" name="carbon-z00a/android_bootable_recovery" groups="pdk" remote="cm-redux" />
   <project path="bootable/recovery-carbon" name="ProjectOpenCannibal/carbon_bootable_recovery" remote="carbon" />
   <project path="cts" name="CyanogenMod/android_cts" groups="cts,pdk-cw-fs" remote="cm" />
   <project path="dalvik" name="platform/dalvik" groups="pdk-cw-fs" remote="aosp" />
@@ -123,7 +130,7 @@
   <project path="external/bzip2" name="platform/external/bzip2" groups="pdk" remote="aosp" />
   <project path="external/cardslib" name="CyanogenMod/android_external_cardslib" remote="cm" />
   <project path="external/ceres-solver" name="platform/external/ceres-solver" groups="pdk-cw-fs" remote="aosp" />
-  <project path="external/checkpolicy" name="CarbonROM/android_external_checkpolicy" remote="carbon" />
+  <project path="external/checkpolicy" name="carbon-z00a/android_external_checkpolicy" remote="carbon" />
   <project path="external/chromium-libpac" name="platform/external/chromium-libpac" remote="aosp" />
   <project path="external/chromium-trace" name="platform/external/chromium-trace" groups="pdk" remote="aosp" />
   <project path="external/chromium_org" name="CyanogenMod/android_external_chromium_org" remote="cm" />
@@ -259,7 +266,7 @@
   <project path="external/libpcap" name="platform/external/libpcap" groups="pdk,pdk-cw-fs" remote="aosp" />
   <project path="external/libphonenumber" name="platform/external/libphonenumber" groups="pdk-cw-fs" remote="aosp" />
   <project path="external/libphonenumbergoogle" name="CyanogenMod/android_external_libphonenumbergoogle" remote="cm" />
-  <project path="external/libpng" name="CarbonROM/android_external_libpng" groups="pdk" remote="carbon" />
+  <project path="external/libpng" name="carbon-z00a/android_external_libpng" groups="pdk" remote="carbon" />
   <project path="external/libppp" name="CyanogenMod/android_external_libppp" remote="cm" />
   <project path="external/libseccomp-helper" name="platform/external/libseccomp-helper" groups="pdk-cw-fs" remote="aosp" />
   <project path="external/libselinux" name="CyanogenMod/android_external_libselinux" groups="pdk" remote="cm" />
@@ -357,7 +364,7 @@
   <project path="external/tagsoup" name="platform/external/tagsoup" groups="pdk-cw-fs,tradefed" remote="aosp" />
   <project path="external/tcpdump" name="CyanogenMod/android_external_tcpdump" groups="pdk,pdk-cw-fs" remote="cm" />
   <project path="external/timezonepicker-support" name="platform/external/timezonepicker-support" remote="aosp" />
-  <project path="external/tinyalsa" name="CyanogenMod/android_external_tinyalsa" groups="pdk" remote="cm" />
+  <project path="external/tinyalsa" name="carbon-z00a/android_external_tinyalsa" groups="pdk" remote="cm-redux" />
   <project path="external/tinycompress" name="CyanogenMod/android_external_tinycompress" groups="pdk" remote="cm" />
   <project path="external/tinyxml" name="platform/external/tinyxml" groups="pdk" remote="aosp" />
   <project path="external/tinyxml2" name="platform/external/tinyxml2" groups="pdk" remote="aosp" />
@@ -383,8 +390,8 @@
   <project path="external/zxing" name="platform/external/zxing" groups="pdk-cw-fs" remote="aosp" />
 
   <!-- Frameworks -->
-  <project path="frameworks/av" name="CarbonROM/android_frameworks_av" groups="pdk" remote="carbon" />
-  <project path="frameworks/base" name="CarbonROM/android_frameworks_base" remote="carbon" />
+  <project path="frameworks/av" name="carbon-z00a/android_frameworks_av" groups="pdk" remote="carbon" />
+  <project path="frameworks/base" name="carbon-z00a/android_frameworks_base" remote="carbon" />
   <project path="frameworks/compile/libbcc" name="CyanogenMod/android_frameworks_compile_libbcc" groups="pdk" remote="cm" />
   <project path="frameworks/compile/mclinker" name="CyanogenMod/android_frameworks_compile_mclinker" groups="pdk" remote="cm" />
   <project path="frameworks/compile/slang" name="CyanogenMod/android_frameworks_compile_slang" groups="pdk" remote="cm" />
@@ -393,7 +400,7 @@
   <project path="frameworks/minikin" name="CyanogenMod/android_frameworks_minikin" groups="pdk-cw-fs" remote="cm" />
   <project path="frameworks/ml" name="CyanogenMod/android_frameworks_ml" remote="cm" />
   <project path="frameworks/multidex" name="CyanogenMod/android_frameworks_multidex" groups="pdk-cw-fs" remote="cm" />
-  <project path="frameworks/native" name="CyanogenMod/android_frameworks_native" groups="pdk" remote="cm" />
+  <project path="frameworks/native" name="carbon-z00a/android_frameworks_native" groups="pdk" remote="cm-redux" />
   <project path="frameworks/opt/bitmap" name="CyanogenMod/android_frameworks_opt_bitmap" remote="cm" />
   <project path="frameworks/opt/bluetooth" name="CyanogenMod/android_frameworks_opt_bluetooth" groups="pdk-cw-fs" remote="cm" />
   <project path="frameworks/opt/calendar" name="CyanogenMod/android_frameworks_opt_calendar" remote="cm" />
@@ -412,7 +419,7 @@
   <project path="frameworks/opt/net/wifi" name="CyanogenMod/android_frameworks_opt_net_wifi" groups="pdk" remote="cm" />
   <project path="frameworks/opt/photoviewer" name="CyanogenMod/android_frameworks_opt_photoviewer" remote="cm" />
   <project path="frameworks/opt/setupwizard" name="CyanogenMod/android_frameworks_opt_setupwizard" groups="pdk-cw-fs" remote="cm" />
-  <project path="frameworks/opt/telephony" name="CarbonROM/android_frameworks_opt_telephony" groups="pdk" remote="carbon" />
+  <project path="frameworks/opt/telephony" name="carbon-z00a/android_frameworks_opt_telephony" groups="pdk" remote="carbon" />
   <project path="frameworks/opt/timezonepicker" name="CyanogenMod/android_frameworks_opt_timezonepicker" remote="cm" />
   <project path="frameworks/opt/vcard" name="CyanogenMod/android_frameworks_opt_vcard" remote="cm" />
   <project path="frameworks/opt/widget" name="platform/frameworks/opt/widget" remote="aosp" />
@@ -431,15 +438,15 @@
   <project path="hardware/intel/audio_media" name="platform/hardware/intel/audio_media" groups="intel" remote="aosp" />
   <project path="hardware/intel/bootstub" name="platform/hardware/intel/bootstub" groups="intel" remote="aosp" />
   <project path="hardware/intel/common/bd_prov" name="platform/hardware/intel/common/bd_prov" groups="intel" remote="aosp" />
-  <project path="hardware/intel/common/libmix" name="CyanogenMod/android_hardware_intel_common_libmix" groups="intel" remote="cm" />
+  <project path="hardware/intel/common/libmix" name="carbon-z00a/android_hardware_intel_common_libmix" groups="intel" remote="cm-redux" />
   <project path="hardware/intel/common/libstagefrighthw" name="platform/hardware/intel/common/libstagefrighthw" groups="intel" remote="aosp" />
   <project path="hardware/intel/common/libva" name="platform/hardware/intel/common/libva" groups="intel" remote="aosp" />
   <project path="hardware/intel/common/libwsbm" name="platform/hardware/intel/common/libwsbm" groups="intel" remote="aosp" />
   <project path="hardware/intel/common/omx-components" name="platform/hardware/intel/common/omx-components" groups="intel" remote="aosp" />
   <project path="hardware/intel/common/utils" name="platform/hardware/intel/common/utils" groups="intel" remote="aosp" />
   <project path="hardware/intel/common/wrs_omxil_core" name="platform/hardware/intel/common/wrs_omxil_core" groups="intel" remote="aosp" />
-  <project path="hardware/intel/img/hwcomposer" name="CyanogenMod/android_hardware_intel_img_hwcomposer" groups="intel" remote="cm" />
-  <project path="hardware/intel/img/libdrm" name="CyanogenMod/android_hardware_intel_img_libdrm" groups="intel" remote="cm" />
+  <project path="hardware/intel/img/hwcomposer" name="carbon-z00a/android_hardware_intel_img_hwcomposer" groups="intel" remote="cm-redux" />
+  <project path="hardware/intel/img/libdrm" name="carbon-z00a/android_hardware_intel_img_libdrm" groups="intel" remote="cm-redux" />
   <project path="hardware/intel/img/psb_headers" name="platform/hardware/intel/img/psb_headers" groups="intel" remote="aosp" />
   <project path="hardware/intel/img/psb_video" name="platform/hardware/intel/img/psb_video" groups="intel" remote="aosp" />
   <project path="hardware/invensense" name="CyanogenMod/android_hardware_invensense" groups="invensense" remote="cm" />
@@ -474,15 +481,15 @@
   <project path="hardware/qcom/msm8x74" name="platform/hardware/qcom/msm8x74" groups="qcom_msm8x74" remote="aosp" />
   <project path="hardware/qcom/msm8x84" name="platform/hardware/qcom/msm8x84" groups="qcom_msm8x84" remote="aosp" />
   <project path="hardware/qcom/wlan" name="CyanogenMod/android_hardware_qcom_wlan" groups="qcom_wlan" remote="cm" />
-  <project path="hardware/ril" name="CyanogenMod/android_hardware_ril" groups="pdk" remote="cm" />
-  <project path="hardware/ril-caf" name="CyanogenMod/android_hardware_ril" groups="pdk" revision="cm-12.1-caf" remote="cm" />
+  <project path="hardware/ril" name="carbon-z00a/android_hardware_ril" groups="pdk" remote="cm-redux" />
+  <project path="hardware/ril-caf" name="carbon-z00a/android_hardware_ril" groups="pdk" revision="cm-12.1-caf" remote="cm-redux" />
   <project path="hardware/samsung_slsi/exynos5" name="CyanogenMod/android_hardware_samsung_slsi_exynos5" remote="cm" />
   <project path="hardware/ti/omap4" name="CyanogenMod/android_hardware_ti_omap4" remote="cm" />
   <project path="hardware/ti/omap4-aah" name="platform/hardware/ti/omap4-aah" groups="omap4-aah" remote="aosp" />
   <project path="hardware/ti/omap4xxx" name="CyanogenMod/android_hardware_ti_omap4xxx" remote="cm" />
   <project path="hardware/ti/wlan" name="CyanogenMod/android_hardware_ti_wlan" remote="cm" />
   <project path="hardware/ti/wpan" name="CyanogenMod/android_hardware_ti_wpan" remote="cm" />
-  <project path="libcore" name="CarbonROM/android_libcore" remote="carbon" />
+  <project path="libcore" name="carbon-z00a/android_libcore" remote="carbon" />
   <project path="libnativehelper" name="CyanogenMod/android_libnativehelper" groups="pdk-java" remote="cm" />
   <project path="ndk" name="platform/ndk" remote="aosp" />
 
@@ -504,28 +511,28 @@
   -->
   <project path="packages/apps/CMFileManager" name="CyanogenMod/android_packages_apps_CMFileManager" remote="cm" />
   <!-- <project path="packages/apps/CMHome" name="CyanogenMod/android_packages_apps_CMHome" remote="cm" /> -->
-  <project path="packages/apps/CMUpdater" name="CarbonROM/android_packages_apps_CMUpdater" remote="carbon" />
+  <project path="packages/apps/CMUpdater" name="carbon-z00a/android_packages_apps_CMUpdater" remote="carbon" />
   <project path="packages/apps/CMWallpapers" name="CyanogenMod/android_packages_apps_CMWallpapers" remote="cm" />
   <project path="packages/apps/Contacts" name="CyanogenMod/android_packages_apps_Contacts" remote="cm" />
   <project path="packages/apps/ContactsCommon" name="CyanogenMod/android_packages_apps_ContactsCommon" remote="cm" />
   <project path="packages/apps/DeskClock" name="CyanogenMod/android_packages_apps_DeskClock" remote="cm" />
-  <project path="packages/apps/Dialer" name="CarbonROM/android_packages_apps_Dialer" remote="carbon" />
+  <project path="packages/apps/Dialer" name="carbon-z00a/android_packages_apps_Dialer" remote="carbon" />
   <project path="packages/apps/Eleven" name="CyanogenMod/android_packages_apps_Eleven" remote="cm" />
   <project path="packages/apps/Email" name="CyanogenMod/android_packages_apps_Email" remote="cm" />
   <project path="packages/apps/Exchange" name="CyanogenMod/android_packages_apps_Exchange" remote="cm" />
   <project path="packages/apps/Gallery2" name="CyanogenMod/android_packages_apps_Gallery2" remote="cm" />
   <project path="packages/apps/HTMLViewer" name="CyanogenMod/android_packages_apps_HTMLViewer" remote="cm" />
-  <project path="packages/apps/InCallUI" name="CarbonROM/android_packages_apps_InCallUI" remote="carbon" />
+  <project path="packages/apps/InCallUI" name="carbon-z00a/android_packages_apps_InCallUI" remote="carbon" />
   <project path="packages/apps/KeyChain" name="CyanogenMod/android_packages_apps_KeyChain" remote="cm" />
   <project path="packages/apps/LockClock" name="CyanogenMod/android_packages_apps_LockClock" remote="cm" />
-  <project path="packages/apps/Mms" name="CarbonROM/android_packages_apps_Mms-caf" remote="carbon" />
+  <project path="packages/apps/Mms" name="carbon-z00a/android_packages_apps_Mms-caf" remote="carbon" />
   <project path="packages/apps/Nfc" name="CyanogenMod/android_packages_apps_Nfc" remote="cm" />
   <project path="packages/apps/OneTimeInitializer" name="platform/packages/apps/OneTimeInitializer" remote="aosp" />
   <project path="packages/apps/PackageInstaller" name="CyanogenMod/android_packages_apps_PackageInstaller" remote="cm" />
   <project path="packages/apps/PhoneCommon" name="CyanogenMod/android_packages_apps_PhoneCommon" remote="cm" />
   <project path="packages/apps/Profiles" name="CyanogenMod/android_packages_apps_Profiles" remote="cm" />
   <project path="packages/apps/Provision" name="CyanogenMod/android_packages_apps_Provision" remote="cm" />
-  <project path="packages/apps/Settings" name="CarbonROM/android_packages_apps_Settings" remote="carbon" />
+  <project path="packages/apps/Settings" name="carbon-z00a/android_packages_apps_Settings" remote="carbon" />
   <project path="packages/apps/SmartCardService" name="CyanogenMod/android_packages_apps_SmartCardService" remote="cm" />
   <project path="packages/apps/SoundRecorder" name="CyanogenMod/android_packages_apps_SoundRecorder" remote="cm" />
   <project path="packages/apps/SpeechRecorder" name="CyanogenMod/android_packages_apps_SpeechRecorder" remote="cm" />
@@ -552,8 +559,8 @@
   <project path="packages/screensavers/PhotoTable" name="CyanogenMod/android_packages_screensavers_PhotoTable" remote="cm" />
   <project path="packages/screensavers/WebView" name="CyanogenMod/android_packages_screensavers_WebView" remote="cm" />
   <project path="packages/services/Mms" name="CyanogenMod/android_packages_services_Mms" remote="cm" />
-  <project path="packages/services/Telecomm" name="CarbonROM/android_packages_services_Telecomm" remote="carbon" />
-  <project path="packages/services/Telephony" name="CarbonROM/android_packages_services_Telephony" remote="carbon" />
+  <project path="packages/services/Telecomm" name="carbon-z00a/android_packages_services_Telecomm" remote="carbon" />
+  <project path="packages/services/Telephony" name="carbon-z00a/android_packages_services_Telephony" remote="carbon" />
   <project path="packages/wallpapers/Basic" name="CyanogenMod/android_packages_wallpapers_Basic" remote="cm" />
   <project path="packages/wallpapers/Galaxy4" name="CyanogenMod/android_packages_wallpapers_Galaxy4" remote="cm" />
   <project path="packages/wallpapers/HoloSpiral" name="CyanogenMod/android_packages_wallpapers_HoloSpiral" remote="cm" />
@@ -597,9 +604,9 @@
   <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.8" name="platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.8" groups="pdk,linux,arm" remote="aosp" />
   <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" name="CyanogenMod/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9" groups="pdk,linux,arm" remote="cm" />
   <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" groups="pdk,linux,arm" remote="aosp" />
-  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.9_sm" name="CarbonROM/android_prebuilts_gcc_linux-x86_arm_arm-eabi-4.9_sm" groups="pdk,linux,arm" remote="carbon" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.9_sm" name="carbon-z00a/android_prebuilts_gcc_linux-x86_arm_arm-eabi-4.9_sm" groups="pdk,linux,arm" remote="carbon" />
   <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" groups="pdk,linux,arm" remote="aosp" />
-  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9_sm" name="CarbonROM/android_prebuilts_gcc_linux-x86_arm-linux-androideabi-4.9_sm" groups="pdk,linux,arm" remote="carbon" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9_sm" name="carbon-z00a/android_prebuilts_gcc_linux-x86_arm-linux-androideabi-4.9_sm" groups="pdk,linux,arm" remote="carbon" />
   <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.6" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.6" groups="pdk,linux" remote="aosp" />
   <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.8" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.8" groups="pdk,linux" remote="aosp" />
   <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.15-4.8" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.15-4.8" groups="pdk,linux" remote="aosp" revision="master" />
@@ -620,7 +627,7 @@
   <project path="prebuilts/sdk" name="platform/prebuilts/sdk" groups="pdk" remote="aosp" />
   <project path="prebuilts/tools" name="platform/prebuilts/tools" groups="pdk,tools" remote="aosp" />
   <project path="sdk" name="platform/sdk" remote="aosp" />
-  <project path="system/core" name="CyanogenMod/android_system_core" groups="pdk" remote="cm" />
+  <project path="system/core" name="carbon-z00a/android_system_core" groups="pdk" remote="cm-redux" />
   <project path="system/extras" name="CyanogenMod/android_system_extras" groups="pdk" remote="cm" />
   <project path="system/extras/su" name="CyanogenMod/android_system_extras_su" remote="cm" />
   <project path="system/keymaster" name="CyanogenMod/android_system_keymaster" groups="pdk" remote="cm" />
@@ -643,8 +650,8 @@
   <project path="tools/swt" name="platform/tools/swt" groups="notdefault,tools" remote="aosp" />
 
   <!-- Vendor Packages -->
-  <project path="vendor/carbon" name="CarbonROM/android_vendor_carbon" remote="carbon" />
-  <project path="vendor/cmsdk" name="CarbonROM/cm_platform_sdk" remote="carbon" />
-  <project path="vendor/sm" name="CarbonROM/android_vendor_sm" remote="carbon" />
+  <project path="vendor/carbon" name="carbon-z00a/android_vendor_carbon" remote="carbon" />
+  <project path="vendor/cmsdk" name="carbon-z00a/cm_platform_sdk" remote="carbon" />
+  <project path="vendor/sm" name="carbon-z00a/android_vendor_sm" remote="carbon" />
 
 </manifest>
